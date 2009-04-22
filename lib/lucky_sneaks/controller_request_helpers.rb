@@ -15,7 +15,7 @@ module LuckySneaks
       when :update
         proc { put :update, params }
       when :destroy
-        proc { put :destroy, params }
+        proc { delete :destroy, params }
       end
     end
     
