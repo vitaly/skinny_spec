@@ -170,7 +170,7 @@ module LuckySneaks
     def do_render
       if @the_template
         render @the_template
-      elsif File.exists?(File.join(RAILS_ROOT, "app/views", class_description_text))
+      elsif ActionController::Base.view_paths.map{|p| File.join(p, class_description_text)}.any? {|f| File.exists?(f) }
         render class_description_text
       else
         error_message = "Cannot determine template for render. "
